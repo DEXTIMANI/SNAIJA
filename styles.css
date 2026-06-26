@@ -45,8 +45,25 @@ button, a { -webkit-tap-highlight-color: transparent; }
 }
 
 .brand i { color: var(--accent); font-style: normal; }
-.brand-mark { width: 32px; height: 32px; }
-.brand-mark svg { fill: none; stroke: currentColor; stroke-width: 2; }
+.brand-mark {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    min-height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+.brand-mark img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
 
 .tagline {
   margin: 0;
