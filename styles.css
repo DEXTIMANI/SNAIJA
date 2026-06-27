@@ -207,7 +207,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   letter-spacing: .18em;
 }
 
-.portal-content {
+ {
   position: absolute;
   left: clamp(24px, 4vw, 68px);
   right: clamp(24px, 4vw, 68px);
@@ -487,6 +487,32 @@ footer { display: none; }
   border-radius: 2px;
   background: #f3efe5;
   box-shadow: 0 30px 100px rgba(0,0,0,.55);
+}
+.portal-content{
+
+    position: absolute;
+
+    left: clamp(24px, 4vw, 68px);
+    right: clamp(24px, 4vw, 68px);
+
+    bottom: clamp(72px, 11vh, 130px);
+
+    z-index: 3;
+
+    max-width: 500px;
+
+    padding: 28px;
+
+    background: rgba(0,0,0,.35);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    border-radius: 22px;
+
+    box-shadow: 0 20px 50px rgba(0,0,0,.35);
 }
 
 .contact-modal::backdrop { background: rgba(5,7,7,.8); backdrop-filter: blur(8px); }
