@@ -7,7 +7,6 @@
 }
 
 * { box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
 
 body {
@@ -19,9 +18,66 @@ body {
   font-size: 14px;
 }
 
-button, input, select { font: inherit; }
-button, a { -webkit-tap-highlight-color: transparent; }
+/* --- Upper-Left Sequential Gallery --- */
+.sequential-gallery {
+  position: absolute;
+  top: 100px;
+  left: 40px;
+  z-index: 5;
+  width: 260px;
+  height: 170px;
+  pointer-events: none;
+}
 
+.seq-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 8px;
+  background: rgba(11, 13, 13, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  opacity: 0;
+  transform: scale(0.95);
+  animation: fadeSequence 40s infinite;
+}
+
+@keyframes fadeSequence {
+  0%, 5% { opacity: 0; transform: scale(0.95); }
+  10%, 20% { opacity: 1; transform: scale(1); }
+  25%, 100% { opacity: 0; transform: scale(0.95); }
+}
+
+/* Sequence Timing: 2s per image */
+.seq-img:nth-child(1) { animation-delay: 0s; }
+.seq-img:nth-child(2) { animation-delay: 2s; }
+.seq-img:nth-child(3) { animation-delay: 4s; }
+.seq-img:nth-child(4) { animation-delay: 6s; }
+.seq-img:nth-child(5) { animation-delay: 8s; }
+.seq-img:nth-child(6) { animation-delay: 10s; }
+
+/* --- Portal/Text Cards (Lower Left) --- */
+.portal-grid { display: flex; min-height: 100vh; }
+.portal { position: relative; flex: 1 1 50%; overflow: hidden; border-right: 1px solid var(--line); }
+
+.portal-content {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    z-index: 3;
+    max-width: 400px;
+    padding: 28px;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 22px;
+}
+
+/* --- General Structure & Components --- */
 .site-header {
   height: 88px;
   padding: 0 clamp(24px, 4vw, 68px);
@@ -35,389 +91,45 @@ button, a { -webkit-tap-highlight-color: transparent; }
   background: linear-gradient(to bottom, rgba(4, 6, 6, .8), transparent);
 }
 
-.brand {
-  color: white;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font: 800 12px/1 "Manrope", sans-serif;
-  letter-spacing: .12em;
-}
-
+.brand { color: white; text-decoration: none; display: flex; align-items: center; gap: 12px; font: 800 12px/1 "Manrope", sans-serif; letter-spacing: .12em; }
 .brand i { color: var(--accent); font-style: normal; }
-
-.brand-mark {
-    width: 32px;
-    height: 32px;
-    min-width: 32px;
-    min-height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-
-.brand-mark img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
-}
-
-.tagline {
-  margin: 0;
-  color: var(--muted);
-  font-size: 9px;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-}
-
-.menu-button {
-  width: 44px;
-  height: 44px;
-  display: grid;
-  place-content: center;
-  gap: 6px;
-  border: 1px solid var(--line);
-  border-radius: 50%;
-  color: white;
-  background: rgba(255,255,255,.04);
-  cursor: pointer;
-  transition: background .25s, transform .25s;
-}
-
-.menu-button:hover,
-.menu-button:focus-visible { background: var(--accent); transform: rotate(8deg); }
-.menu-button span { width: 16px; height: 1px; background: currentColor; display: block; }
-.menu-button span:last-child { width: 10px; justify-self: end; }
-
-.portal-shell { 
-  min-height: 100vh;
-  min-height: 100svh; 
-  position: relative; 
-  overflow: hidden; 
-}
+.brand-mark { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; }
+.brand-mark img { width: 100%; height: 100%; object-fit: contain; }
 
 .intro {
   position: absolute;
+  top: 40%;
   left: 50%;
-  top: 48%;
-  z-index: 10;
   transform: translate(-50%, -50%);
-  width: min(90vw, 600px);
   text-align: center;
-  pointer-events: none;
-  transition: opacity .35s, transform .45s;
+  z-index: 10;
 }
 
-.portal-shell:has(.portal:hover) .intro,
-.portal-shell:has(.portal:focus-within) .intro {
-  opacity: 0;
-  transform: translate(-50%, -42%);
-}
-
-.eyebrow {
-  color: rgba(255,255,255,.72);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-}
-
-.eyebrow span { width: 24px; height: 1px; background: var(--accent); display: inline-block; vertical-align: middle; margin-right: 9px; }
-
-.intro h1 {
-  margin: 18px 0 16px;
-  font: 600 clamp(36px, 5vw, 72px)/.92 "Manrope", sans-serif;
-  letter-spacing: -.065em;
-  text-shadow: 0 8px 40px rgba(0,0,0,.35);
-}
-
-.intro > p:last-child { color: var(--muted); font-size: 12px; }
-
-.portal-grid { 
-  display: flex; 
-  min-height: 100vh;
-  min-height: 100svh; 
-}
-
-.portal {
-  position: relative;
-  flex: 1 1 50%;
-  min-width: 0;
-  overflow: hidden;
-  outline: none;
-  border-right: 1px solid var(--line);
-  transition: flex .8s cubic-bezier(.2,.75,.2,1);
-}
-
-.portal-grid:has(.portal:hover) .portal:not(:hover),
-.portal-grid:has(.portal:focus-within) .portal:not(:focus-within) { flex-grow: .72; }
-.portal:hover, .portal:focus-within { flex-grow: 1.28; }
-
-.portal > img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center;
-    background: #0b0d0d;
-    filter: saturate(.76);
-    transition: transform 1.2s cubic-bezier(.2,.75,.2,1), filter .8s;
-    animation: breathe 14s ease-in-out infinite alternate;
-}
-
-.portal.imports > img { animation-delay: -6s; }
-.portal:hover > img, .portal:focus-within > img { filter: saturate(1); transform: scale(1.09); }
-
-@keyframes breathe {
-    from { transform: translateY(-6px); }
-    to { transform: translateY(6px); }
-}
-
-.portal-shade {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(5,8,8,.35), rgba(5,8,8,.08) 35%, rgba(5,8,8,.82) 100%);
-  transition: background .5s;
-  pointer-events: none; /* Fix: Allows clicking through the shade */
-}
-
-.portal::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 50% 65%, transparent, rgba(0,0,0,.3));
-  pointer-events: none;
-}
-
-.portal-number {
-  position: absolute;
-  z-index: 2;
-  top: 114px;
-  left: clamp(24px, 4vw, 68px);
-  color: rgba(255,255,255,.55);
-  font: 500 10px "Manrope";
-  letter-spacing: .18em;
-}
-
-.portal-icon {
-  width: 44px;
-  height: 44px;
-  display: grid;
-  place-items: center;
-  border: 1px solid var(--line);
-  border-radius: 50%;
-  background: rgba(0,0,0,.12);
-  backdrop-filter: blur(8px);
-  margin-bottom: 24px;
-}
-
-.fade-gallery {
-    position: absolute;
-    top: 100px; /* Sits just below your fixed header */
-    left: 24px;
-    width: 240px;
-    height: 150px;
-    z-index: 5;
-    pointer-events: none;
-}
-
-.fade-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    opacity: 0;
-    animation: fadeSequence 30s infinite; /* 30s = Total loop time */
-    
-    /* Glass Effect from before */
-    padding: 8px;
-    background: rgba(11, 13, 13, 0.8);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 16px;
-}
-
-@keyframes fadeSequence {
-    0%, 10%, 100% { opacity: 0; } /* Invisible */
-    15%, 30% { opacity: 1; }      /* Visible */
-}
-
-/* Stagger the timing for each image */
-/* Adjust the 'animation-delay' so they don't all fade at once */
-.fade-img:nth-child(1) { animation-delay: 0s; }
-.fade-img:nth-child(2) { animation-delay: 5s; }
-.fade-img:nth-child(3) { animation-delay: 10s; }
-.fade-img:nth-child(4) { animation-delay: 15s; }
-.fade-img:nth-child(5) { animationNormally I can help with things like this, but I don't seem to have access to that content. You can try again or ask me for something else.
-    
-    /* FIX: Changed from cover to contain so the whole image is visible */
-    object-fit: contain; 
-    
-    position: relative;
-    z-index: 1;
-    cursor: pointer;
-    pointer-events: auto;
-    
-    /* Glassmorphism Effect */
-    padding: 8px; 
-    
-    /* FIX: Solid dark background ensures that empty space caused by 'contain' 
-       matches your site's dark theme */
-    background: rgba(11, 13, 13, 0.8); 
-    
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 16px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-    
-    filter: drop-shadow(0 20px 25px rgba(0,0,0,.6));
-    transition: transform .45s ease, filter .45s ease, background .45s ease, border-color .45s ease;
-}
-
-.gallery-track img:nth-child(odd) {
-    transform: translateY(-12px) rotate(-3deg);
-}
-
-.gallery-track img:nth-child(even) {
-    transform: translateY(12px) rotate(3deg);
-}
-
-.gallery-track img:hover {
-    transform: translateY(-22px) scale(1.18) rotate(0); 
-    background: rgba(255, 255, 255, 0.1); 
-    border-color: rgba(229, 165, 75, 0.5);
-    filter: drop-shadow(0 35px 50px rgba(0,0,0,.8)) 
-            drop-shadow(0 0 25px rgba(229,165,75,.4)) 
-            brightness(1.1) 
-            saturate(1.15);
-    z-index: 20;
-}
-
-.portal-icon svg { width: 20px; fill: none; stroke: white; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
-.portal-label { margin: 0 0 8px; color: var(--accent); font-size: 9px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
-
-.portal h2 {
-  margin: 0;
-  font: 600 clamp(28px, 3.5vw, 48px)/.95 "Manrope", sans-serif;
-  letter-spacing: -.055em;
-}
-
-.portal-description {
-  margin: 18px 0 24px;
-  max-width: 390px;
-  color: rgba(255,255,255,.75);
-  line-height: 1.65;
-  font-size: 12px;
-  opacity: 0;
-  transform: translateY(12px);
-  transition: opacity .4s .08s, transform .4s .08s;
-}
-
-.portal:hover .portal-description, .portal:focus-within .portal-description { opacity: 1; transform: none; }
+.portal-icon { width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; margin-bottom: 24px; }
+.portal-label { color: var(--accent); font-size: 9px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+.portal h2 { margin: 0; font: 600 48px "Manrope", sans-serif; letter-spacing: -.055em; }
 
 .explore {
-  padding: 0 0 8px;
+  margin-top: 20px;
   color: white;
   background: none;
   border: 0;
   border-bottom: 1px solid rgba(255,255,255,.55);
   cursor: pointer;
-  font-size: 11px;
   font-weight: 600;
-  letter-spacing: .06em;
   text-transform: uppercase;
 }
-
-.explore span { display: inline-block; margin-left: 10px; color: var(--accent); transition: transform .2s; }
-.explore:hover span,
-.explore:focus-visible span { transform: translate(3px, -3px); }
-
-.scroll-cue {
-  position: absolute;
-  left: 50%;
-  bottom: 27px;
-  z-index: 5;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: rgba(255,255,255,.45);
-  font-size: 9px;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-}
-
-.scroll-cue i { display: block; width: 36px; height: 1px; background: rgba(255,255,255,.3); overflow: hidden; }
-.scroll-cue i::after { content: ""; display: block; width: 45%; height: 100%; background: var(--accent); animation: slide 2s infinite; }
-@keyframes slide { from { transform: translateX(-120%); } to { transform: translateX(250%); } }
-
-footer { display: none; }
 
 .contact-modal {
   width: min(92vw, 560px);
-  color: #191b1a;
-  padding: clamp(28px, 5vw, 54px);
-  border: 0;
+  padding: 54px;
   border-radius: 2px;
   background: #f3efe5;
-  box-shadow: 0 30px 100px rgba(0,0,0,.55);
 }
 
-.portal-content {
-    position: absolute;
-    left: clamp(24px, 4vw, 68px);
-    right: clamp(24px, 4vw, 68px);
-    bottom: clamp(72px, 11vh, 130px);
-    z-index: 3;
-    max-width: 500px;
-    padding: 28px;
-    background: rgba(0,0,0,.35);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border: 1px solid rgba(255,255,255,.12);
-    border-radius: 22px;
-    box-shadow: 0 20px 50px rgba(0,0,0,.35);
-}
-
-.contact-modal::backdrop { background: rgba(5,7,7,.8); backdrop-filter: blur(8px); }
-.contact-modal[open] { animation: modal-in .35s ease-out; }
-@keyframes modal-in { from { opacity: 0; transform: translateY(20px) scale(.98); } }
-.contact-modal .eyebrow { color: #74736d; margin-top: 0; }
-.contact-modal h2 { margin: 15px 0; font: 700 clamp(28px, 5vw, 44px)/.95 "Manrope"; letter-spacing: -.055em; }
-.modal-copy { color: #666862; font-size: 12px; }
-.modal-close { position: absolute; top: 18px; right: 20px; border: 0; background: none; font-size: 28px; cursor: pointer; color: #6b6b66; }
-.contact-modal form { display: grid; gap: 18px; margin-top: 30px; }
-.contact-modal label { display: grid; gap: 7px; color: #666862; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
-.contact-modal input, .contact-modal select { width: 100%; border: 0; border-bottom: 1px solid #bfbbb0; padding: 10px 0; color: #171918; background: transparent; outline: none; }
-.contact-modal input:focus, .contact-modal select:focus { border-color: #ad7426; }
-.submit-button { margin-top: 8px; padding: 16px 20px; color: white; background: #171918; border: 0; cursor: pointer; display: flex; justify-content: space-between; }
-.submit-button:hover,
-.submit-button:focus-visible { background: #ad7426; }
-.form-status { min-height: 20px; margin: 0; color: #55714b; font-size: 13px; }
-
-@media (max-width: 760px) {
-  .site-header { height: 72px; background: rgba(7,9,9,.74); backdrop-filter: blur(10px); }
-  .tagline { display: none; }
-  .portal-shell { overflow: visible; }
-  .intro { position: relative; top: auto; left: auto; transform: none; width: auto; padding: 120px 24px 45px; background: #0b0d0d; }
-  .intro h1 { font-size: 38px; }
-  .portal-shell:has(.portal:hover) .intro, .portal-shell:has(.portal:focus-within) .intro { opacity: 1; transform: none; }
-  .portal-grid { display: block; min-height: auto; }
-  .portal { height: 72svh; min-height: 520px; border: 0; border-top: 1px solid var(--line); }
-  .portal-content { bottom: 52px; }
-  .portal-description { opacity: 1; transform: none; }
-  .portal-number { top: 28px; }
-  .scroll-cue { display: none; }
-  footer { display: flex; justify-content: space-between; padding: 28px 24px; color: #777; font-size: 9px; letter-spacing: .1em; text-transform: uppercase; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+  .sequential-gallery { top: 80px; left: 20px; width: 200px; height: 130px; }
+  .portal-content { bottom: 20px; left: 20px; right: 20px; }
+  .portal-grid { display: block; }
 }
