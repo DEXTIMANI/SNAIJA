@@ -266,15 +266,22 @@ button, a { -webkit-tap-highlight-color: transparent; }
     width: 240px;
     height: 150px;
     flex-shrink: 0;
-    object-fit: cover; /* Fix: Fills the glass frame */
+    
+    /* FIX: Changed from cover to contain so the whole image is visible */
+    object-fit: contain; 
+    
     position: relative;
     z-index: 1;
     cursor: pointer;
-    pointer-events: auto; /* Fix: Re-enables interaction */
+    pointer-events: auto;
     
     /* Glassmorphism Effect */
     padding: 8px; 
-    background: rgba(255, 255, 255, 0.05);
+    
+    /* FIX: Solid dark background ensures that empty space caused by 'contain' 
+       matches your site's dark theme */
+    background: rgba(11, 13, 13, 0.8); 
+    
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.15);
