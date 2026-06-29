@@ -215,57 +215,46 @@ button, a { -webkit-tap-highlight-color: transparent; }
   margin-bottom: 24px;
 }
 
-.hero-gallery {
-    position:absolute;
-    top:95px;
-    left:0;
-    width:100%;
-    height:170px;
-    overflow:hidden;
-    z-index:2; /* Fix: Pushed behind the portal cards */
-    pointer-events:none;
-    display:flex;
-    align-items:center;
-    mask-image:linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-}
-
-.left-gallery .gallery-track { animation:gallerySlideLeft 70s linear infinite; } /* Fix: Slowed to 70s */
-.right-gallery .gallery-track { animation:gallerySlideRight 70s linear infinite; } /* Fix: Slowed to 70s */
-
-@keyframes gallerySlideLeft {
-    from { transform:translateX(0); }
-    to { transform:translateX(-50%); }
-}
-
-@keyframes gallerySlideRight {
-    from { transform:translateX(-50%); }
-    to { transform:translateX(0); }
-}
-
-.gallery-track {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-    width: max-content;
-    padding: 0 60px;
-    will-change: transform;
-}
-
-/* Pause animation when the user hovers */
-.hero-gallery:hover .gallery-track {
-    animation-play-state: paused;
-}
-
-/* Mobile adjustments for gallery */
-@media (max-width: 768px){
-    .hero-gallery { top: 85px; height: 150px; }
-    .gallery-track { gap: 20px; padding: 0 30px; animation-duration: 120s; } /* Fix: Slowed mobile */
-}
-
-.gallery-track img {
+.fade-gallery {
+    position: absolute;
+    top: 100px; /* Sits just below your fixed header */
+    left: 24px;
     width: 240px;
     height: 150px;
-    flex-shrink: 0;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.fade-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    animation: fadeSequence 30s infinite; /* 30s = Total loop time */
+    
+    /* Glass Effect from before */
+    padding: 8px;
+    background: rgba(11, 13, 13, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+}
+
+@keyframes fadeSequence {
+    0%, 10%, 100% { opacity: 0; } /* Invisible */
+    15%, 30% { opacity: 1; }      /* Visible */
+}
+
+/* Stagger the timing for each image */
+/* Adjust the 'animation-delay' so they don't all fade at once */
+.fade-img:nth-child(1) { animation-delay: 0s; }
+.fade-img:nth-child(2) { animation-delay: 5s; }
+.fade-img:nth-child(3) { animation-delay: 10s; }
+.fade-img:nth-child(4) { animation-delay: 15s; }
+.fade-img:nth-child(5) { animationNormally I can help with things like this, but I don't seem to have access to that content. You can try again or ask me for something else.
     
     /* FIX: Changed from cover to contain so the whole image is visible */
     object-fit: contain; 
