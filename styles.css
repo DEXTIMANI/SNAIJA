@@ -259,7 +259,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 /* Mobile adjustments for gallery */
 @media (max-width: 768px){
     .hero-gallery { top: 85px; height: 150px; }
-    .gallery-track { gap: 20px; padding: 0 30px; animation-duration: 50s; } /* Fix: Slowed mobile */
+    .gallery-track { gap: 20px; padding: 0 30px; animation-duration: 120s; } /* Fix: Slowed mobile */
 }
 
 .gallery-track img {
