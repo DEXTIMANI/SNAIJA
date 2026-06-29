@@ -1,142 +1,283 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>SNAIJA Construction Engineering Ltd. | Construction, Architecture & Engineering Services</title>
-  <meta name="description" content="SNAIJA Construction Engineering Ltd. is a trusted construction and engineering company in Aba, Nigeria, specializing in building construction, civil engineering, architectural design, engineering consultancy and project management.">
-  <meta name="keywords" content="SNAIJA Construction, Construction Company Nigeria, Engineering Company Aba, Building Construction, Civil Engineering, Architecture, Project Management, Engineering Consultancy, Abia State">
-  <meta name="author" content="SNAIJA Construction Engineering Ltd.">
-  <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#0B5ED7">
-  <meta name="application-name" content="SNAIJA Construction Engineering Ltd.">
-  
-  <link rel="canonical" href="https://www.snaija.online/">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>SNAIJA Construction Engineering Ltd. | Construction, Architecture & Engineering Services</title>
+  <meta name="description" content="SNAIJA Construction Engineering Ltd. is a trusted construction and engineering company in Aba, Nigeria, specializing in building construction, civil engineering, architectural design, engineering consultancy and project management.">
+  <meta name="keywords" content="SNAIJA Construction, Construction Company Nigeria, Engineering Company Aba, Building Construction, Civil Engineering, Architecture, Project Management, Engineering Consultancy, Abia State">
+  <meta name="author" content="SNAIJA Construction Engineering Ltd.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0B5ED7">
+  <meta name="application-name" content="SNAIJA Construction Engineering Ltd.">
+  
+  <link rel="canonical" href="https://www.snaija.online/">
 
-  <!-- Open Graph & Twitter Meta tags -->
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="SNAIJA Construction Engineering Ltd.">
-  <meta property="og:title" content="SNAIJA Construction Engineering Ltd.">
-  <meta property="og:description" content="We Remain Pioneers In Architecture And Engineering Works.">
-  <meta property="og:url" content="https://www.snaija.online/">
-  <meta property="og:image" content="https://www.snaija.online/og-image.png">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SNAIJA Construction Engineering Ltd.">
+  <meta property="og:title" content="SNAIJA Construction Engineering Ltd.">
+  <meta property="og:description" content="We Remain Pioneers In Architecture And Engineering Works.">
+  <meta property="og:url" content="https://www.snaija.online/">
+  <meta property="og:image" content="https://www.snaija.online/og-image.png">
+  <meta property="og:image:secure_url" content="https://www.snaija.online/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="SNAIJA Construction Engineering Ltd.">
+  <meta property="og:locale" content="en_NG">
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SNAIJA Construction Engineering Ltd.">
+  <meta name="twitter:description" content="Professional Construction, Architecture and Engineering Services.">
+  <meta name="twitter:image" content="https://www.snaija.online/og-image.png">
 
-  <style>
-    :root {
-      --ink: #f5f2ea;
-      --muted: rgba(245, 242, 234, .67);
-      --line: rgba(255, 255, 255, .18);
-      --accent: #e5a54b;
-      --dark: #0b0d0d;
-    }
-    body { margin: 0; background: var(--dark); color: var(--ink); font-family: "DM Sans", sans-serif; }
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-    /* Sequential Fading Gallery (Upper Left) */
-    .sequential-gallery {
-      position: absolute; top: 100px; left: 40px; z-index: 5;
-      width: 260px; height: 170px; pointer-events: none;
-    }
-    .seq-img {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      object-fit: contain; padding: 8px;
-      background: rgba(11, 13, 13, 0.8);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 16px;
-      opacity: 0;
-      transform: scale(0.95);
-      animation: fadeSequence 40s infinite;
-    }
-    @keyframes fadeSequence {
-      0%, 5% { opacity: 0; transform: scale(0.95); }
-      10%, 20% { opacity: 1; transform: scale(1); }
-      25%, 100% { opacity: 0; transform: scale(0.95); }
-    }
-    .seq-img:nth-child(1) { animation-delay: 0s; }
-    .seq-img:nth-child(2) { animation-delay: 5s; }
-    .seq-img:nth-child(3) { animation-delay: 10s; }
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
 
-    /* Portal Structure */
-    .portal-grid { display: flex; min-height: 100vh; }
-    .portal { position: relative; flex: 1 1 50%; overflow: hidden; border-right: 1px solid var(--line); }
-    
-    /* Hero Background Images (Cover) */
-    .portal > img {
-      position: absolute; inset: 0; width: 100%; height: 100%;
-      object-fit: cover; /* Backgrounds should cover the portal */
-    }
+  <link rel="stylesheet" href="styles.css">
 
-    .portal-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2), rgba(0,0,0,0.8)); }
-    
-    .portal-content {
-      position: absolute; bottom: 40px; left: 40px; z-index: 3;
-      max-width: 400px; padding: 28px;
-      background: rgba(0,0,0,0.4);
-      backdrop-filter: blur(10px);
-      border-radius: 22px; border: 1px solid rgba(255,255,255,0.1);
-    }
-
-    /* Standard Elements */
-    .site-header { position: fixed; top: 0; width: 100%; padding: 24px; z-index: 20; display: flex; justify-content: space-between; align-items: center; }
-    .portal-label { color: var(--accent); font-weight: 700; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; }
-    h2 { font-size: 48px; line-height: 1; margin: 15px 0; }
-  </style>
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ConstructionCompany",
+    "name":"SNAIJA Construction Engineering Ltd.",
+    "url":"https://www.snaija.online",
+    "logo":"https://www.snaija.online/logo.png",
+    "image":"https://www.snaija.online/og-image.png",
+    "description":"Professional construction, engineering and architectural services.",
+    "email":"snaijace@gmail.com",
+    "telephone":"+2348037591241",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"138 Tenant Road",
+      "addressLocality":"Aba",
+      "addressRegion":"Abia State",
+      "postalCode":"450211",
+      "addressCountry":"NG"
+    },
+    "sameAs":[
+      "https://www.snaija.online"
+    ]
+  }
+  </script>
 </head>
 <body>
 
-  <header class="site-header">
-    <a class="brand" href="#">SNAIJA</a>
-    <button class="menu-button" data-open-modal="General enquiry">Menu</button>
-  </header>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="SCE - SNAIJA CONSTRUCTION ENGINEERING LTD.">
+      <span class="brand-mark" aria-hidden="true">
+        <img src="logo.png" alt="SNAIJA" class="brand-logo">
+      </span>
+      <span><i>SNAIJA</i> CONSTRUCTION ENGINEERING LTD.</span>
+    </a>
+    <p class="tagline">We Remain Pioneers In Architecture And Engineering Works.</p>
+    <button class="menu-button" type="button" aria-label="Open contact form" data-open-modal="General enquiry">
+      <span></span><span></span>
+    </button>
+  </header>
 
-  <main class="portal-shell">
-    <!-- Fading Gallery -->
-    <div class="sequential-gallery">
-        <img src="gal (1).jpg" class="seq-img">
-        <img src="gal (2).jpg" class="seq-img">
-        <img src="gal (3).jpg" class="seq-img">
-    </div>
+  <main class="portal-shell">
+    
+    <section class="intro" aria-labelledby="page-title">
+      <p class="eyebrow"><span></span> Welcome to SNAIJA.</p>
+      <h1 id="page-title">What can we<br>help you with?</h1>
+      <p>Wonderful Architecture, Standard Products. One standard of excellence.</p>
+    </section>
+<!-- Left Gallery inserted safely behind content -->
+        
+    <div class="portal-grid">
+      
+      <!-- LEFT PORTAL: CONSTRUCTION -->
+      <article class="portal construction" tabindex="0">
+        <img src="construction.png" alt="Modern building under construction at golden hour">
+        <div class="portal-shade"></div>
+        <div class="hero-gallery left-gallery">
+            <div class="gallery-track">
+                <img src="assets/gal (1).jpg" alt="Gallery Image">
+                <img src="gal (1).jpg" alt="Gallery Image">
+                <img src="gal (2).jpg" alt="Gallery Image">
+                <img src="gal (3).jpg" alt="Gallery Image">
+                <img src="gal (4).jpg" alt="Gallery Image">
+                <img src="gal (5).jpg" alt="Gallery Image">
+                <img src="gal (6).jpg" alt="Gallery Image">
+                <img src="gal (7).jpg" alt="Gallery Image">
+                <img src="gal (8).jpg" alt="Gallery Image">
+                <img src="gal (9).jpg" alt="Gallery Image">
+                <img src="gal (10).jpg" alt="Gallery Image">
+                <img src="gal (11).jpg" alt="Gallery Image">
+                <img src="gal (12).jpg" alt="Gallery Image">
+                <img src="gal (13).jpg" alt="Gallery Image">
+                <img src="gal (14).jpg" alt="Gallery Image">
+                <img src="gal (15).jpg" alt="Gallery Image">
+                <img src="gal (16).jpg" alt="Gallery Image">
+                <img src="gal (17).jpg" alt="Gallery Image">
+                <img src="gal (18).jpg" alt="Gallery Image">
+                <img src="gal (19).jpg" alt="Gallery Image">
+                <img src="gal (20).jpg" alt="Gallery Image">
+                <img src="gal (21).jpg" alt="Gallery Image">
+                <!-- Repeat for seamless scrolling -->
+                <img src="gal (1).jpg" alt="Gallery Image">
+                <img src="gal (2).jpg" alt="Gallery Image">
+                <img src="gal (3).jpg" alt="Gallery Image">
+                <img src="gal (4).jpg" alt="Gallery Image">
+                <img src="gal (5).jpg" alt="Gallery Image">
+                <img src="gal (6).jpg" alt="Gallery Image">
+                <img src="gal (7).jpg" alt="Gallery Image">
+                <img src="gal (8).jpg" alt="Gallery Image">
+                <img src="gal (9).jpg" alt="Gallery Image">
+                <img src="gal (10).jpg" alt="Gallery Image">
+                <img src="gal (11).jpg" alt="Gallery Image">
+                <img src="gal (12).jpg" alt="Gallery Image">
+                <img src="gal (13).jpg" alt="Gallery Image">
+                <img src="gal (14).jpg" alt="Gallery Image">
+                <img src="gal (15).jpg" alt="Gallery Image">
+                <img src="gal (16).jpg" alt="Gallery Image">
+                <img src="gal (17).jpg" alt="Gallery Image">
+                <img src="gal (18).jpg" alt="Gallery Image">
+                <img src="gal (19).jpg" alt="Gallery Image">
+                <img src="gal (20).jpg" alt="Gallery Image">
+                <img src="gal (21).jpg" alt="Gallery Image">
+            </div>
+        </div>
 
-    <div class="portal-grid">
-      <!-- Construction Portal -->
-      <article class="portal">
-        <img src="construction.png" alt="Building site">
-        <div class="portal-shade"></div>
-        <div class="portal-content">
-          <p class="portal-label">SNAIJA WORKS</p>
-          <h2>Building<br>Construction</h2>
-          <button class="explore" data-open-modal="Construction project">Explore</button>
-        </div>
-      </article>
+        <span class="portal-number">01</span>
+        <div class="portal-content">
+          <span class="portal-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-7h6v7M8 10h.01M16 10h.01"/></svg>
+          </span>
+          <p class="portal-label">SNAIJA CONSTRUCTION ENGENEERING LTD</p>
+          <h2>Start a<br>Construction Project</h2>
+          <p class="portal-description">From first sketch to final finish, we deliver solid spaces built for generations.</p>
+          <button class="explore" type="button" data-open-modal="Construction project">
+            Explore construction
+            <span aria-hidden="true">↗</span>
+          </button>
+        </div>
+      </article>
 
-      <!-- Import Portal -->
-      <article class="portal">
-        <img src="imported-goods.png" alt="Imported goods">
-        <div class="portal-shade"></div>
-        <div class="portal-content">
-          <p class="portal-label">SNAIJA VENTURES</p>
-          <h2>General<br>Merchandise</h2>
-          <button class="explore" data-open-modal="Imported goods">Browse</button>
-        </div>
-      </article>
-    </div>
-  </main>
+      <!-- RIGHT PORTAL: IMPORTS -->
+      <article class="portal imports" tabindex="0">
+        <img src="imported-goods.png" alt="Premium imported goods for your convenience">
+        <div class="portal-shade"></div>
+        
+        <!-- Right Gallery inserted safely behind content -->
+        <div class="hero-gallery right-gallery">
+            <div class="gallery-track reverse">
+                <img src="gala (1).jpg" alt="Import Image">
+                <img src="gala (2).jpg" alt="Import Image">
+                <img src="gala (3).jpg" alt="Import Image">
+                <img src="gala (4).jpg" alt="Import Image">
+                <img src="gala (5).jpg" alt="Import Image">
+                <img src="gala (6).jpg" alt="Import Image">
+                <img src="gala (7).jpg" alt="Import Image">
+                <img src="gala (8).jpg" alt="Import Image">
+                <img src="gala (9).jpg" alt="Import Image">
+                <img src="gala (10).jpg" alt="Import Image">
+                <img src="gala (11).jpg" alt="Import Image">
+                <!-- Repeat for seamless scrolling -->
+                <img src="gala (1).jpg" alt="Import Image">
+                <img src="gala (2).jpg" alt="Import Image">
+                <img src="gala (3).jpg" alt="Import Image">
+                <img src="gala (4).jpg" alt="Import Image">
+                <img src="gala (5).jpg" alt="Import Image">
+                <img src="gala (6).jpg" alt="Import Image">
+                <img src="gala (7).jpg" alt="Import Image">
+                <img src="gala (8).jpg" alt="Import Image">
+                <img src="gala (9).jpg" alt="Import Image">
+                <img src="gala (10).jpg" alt="Import Image">
+                <img src="gala (11).jpg" alt="Import Image">
+            </div>
+        </div>
 
-  <footer class="site-footer">
-    <!-- ... Restored Footer content ... -->
-  </footer>
+        <span class="portal-number">02</span>
+        <div class="portal-content">
+          <span class="portal-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M3 6.5 12 2l9 4.5v11L12 22l-9-4.5v-11ZM3 6.5l9 4.5 9-4.5M12 11v11M7.5 4.25l9 4.5"/></svg>
+          </span>
+          <p class="portal-label">SNAIJA VENTURES LIMITED</p>
+          <h2>General<br>Merchandise</h2>
+          <p class="portal-description">Carefully sourced products from trusted global suppliers, brought closer to you.</p>
+          <button class="explore" type="button" data-open-modal="Imported goods">
+            Browse our goods
+            <span aria-hidden="true">↗</span>
+          </button>
+        </div>
+      </article>
 
-  <dialog class="contact-modal">
-    <!-- ... Restored Modal content ... -->
-  </dialog>
+    </div>
 
-  <script src="script.js"></script>
+    <div class="scroll-cue" aria-hidden="true">
+      <span>Make a Choice</span>
+      <i></i>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-section">
+        <h3>SNAIJA CONSTRUCTION ENGINEERING LTD.</h3>
+        <p>We Remain Pioneers In Architecture & Engineering Works.</p>
+    </div>
+    <div class="footer-section">
+        <h4>Office</h4>
+        <p>#138 Tenant Road, Aba, Abia State</p>
+    </div>
+    <div class="footer-section">
+        <h4>Contact</h4>
+        <p>📞 +234 803 759 1241</p>
+        <p>📞 +234 807 840 5140</p>
+        <p>✉️ snaijace@gmail.com</p>
+        <p>🌐 www.snaija.online</p>
+    </div>
+    <div class="footer-section">
+        <h4>Services</h4>
+        <p>Building Construction</p>
+        <p>Civil Engineering</p>
+        <p>Architectural Design</p>
+        <p>Engineering Consultancy</p>
+        <p>Project Management</p>
+    </div>
+    <div class="footer-bottom">
+        © 2026 SNAIJA CONSTRUCTION ENGINEERING LTD. All Rights Reserved.
+    </div>
+  </footer>
+
+  <dialog class="contact-modal">
+    <button class="modal-close" type="button" aria-label="Close">×</button>
+    <p class="eyebrow"><span></span> Start a conversation</p>
+    <h2>Tell us what<br>you have in mind.</h2>
+    <p class="modal-copy">Leave your details and our team will get back to you.</p>
+    <form>
+      <label>
+        Your name
+        <input type="text" name="name" autocomplete="name" required placeholder="e.g. David Okafor">
+      </label>
+      <label>
+        Phone or email
+        <input type="text" name="contact" required placeholder="How should we reach you?">
+      </label>
+      <label>
+        I’m interested in
+        <select name="interest">
+          <option>Construction project</option>
+          <option>Imported goods</option>
+          <option>General enquiry</option>
+        </select>
+      </label>
+      <button class="submit-button" type="submit">Get in Touch <span>→</span></button>
+      <p class="form-status" role="status"></p>
+    </form>
+  </dialog>
+
+  <script src="script.js"></script>
 </body>
 </html>
