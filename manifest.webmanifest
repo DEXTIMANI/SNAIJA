@@ -1,0 +1,17 @@
+{
+    "name": "SNAIJA Construction Engineering Ltd",
+    "short_name": "SNAIJA",
+    "description": "Professional Construction and Civil Engineering Company in Nigeria.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#1c5d3d",
+    "orientation": "portrait",
+    "icons": [
+        {
+            "src": "/favicon.ico",
+            "sizes": "64x64",
+            "type": "image/x-icon"
+        }
+    ]
+}
