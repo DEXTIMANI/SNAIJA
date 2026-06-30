@@ -1,283 +1,577 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>SNAIJA Construction Engineering Ltd. | Construction, Architecture & Engineering Services</title>
-  <meta name="description" content="SNAIJA Construction Engineering Ltd. is a trusted construction and engineering company in Aba, Nigeria, specializing in building construction, civil engineering, architectural design, engineering consultancy and project management.">
-  <meta name="keywords" content="SNAIJA Construction, Construction Company Nigeria, Engineering Company Aba, Building Construction, Civil Engineering, Architecture, Project Management, Engineering Consultancy, Abia State">
-  <meta name="author" content="SNAIJA Construction Engineering Ltd.">
-  <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#0B5ED7">
-  <meta name="application-name" content="SNAIJA Construction Engineering Ltd.">
-  
-  <link rel="canonical" href="https://www.snaija.online/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNAIJA - One Brand Two Trades</title>
+    <style>
+        /* --- GLOBAL STYLES --- */
+        :root {
+            --bg-color: #050505;
+            --text-light: #ffffff;
+            --gold: #d4af37;
+            --gold-light: #f3e5ab;
+            --panel-border: #ffffff;
+            --active-orange: #ff7b00;
+        }
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="SNAIJA Construction Engineering Ltd.">
-  <meta property="og:title" content="SNAIJA Construction Engineering Ltd.">
-  <meta property="og:description" content="We Remain Pioneers In Architecture And Engineering Works.">
-  <meta property="og:url" content="https://www.snaija.online/">
-  <meta property="og:image" content="https://www.snaija.online/og-image.png">
-  <meta property="og:image:secure_url" content="https://www.snaija.online/og-image.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="SNAIJA Construction Engineering Ltd.">
-  <meta property="og:locale" content="en_NG">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-  <!-- Twitter / X -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="SNAIJA Construction Engineering Ltd.">
-  <meta name="twitter:description" content="Professional Construction, Architecture and Engineering Services.">
-  <meta name="twitter:image" content="https://www.snaija.online/og-image.png">
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-light);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
 
-  <!-- Favicon -->
-  <link rel="icon" href="favicon.ico">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        /* --- HEADER --- */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+            background: linear-gradient(to bottom, #1a1a1a, #000000);
+            border-bottom: 1px solid #333;
+        }
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+        .header-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-  <link rel="stylesheet" href="styles.css">
+        .header-logo img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #fff;
+        }
 
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"ConstructionCompany",
-    "name":"SNAIJA Construction Engineering Ltd.",
-    "url":"https://www.snaija.online",
-    "logo":"https://www.snaija.online/logo.png",
-    "image":"https://www.snaija.online/og-image.png",
-    "description":"Professional construction, engineering and architectural services.",
-    "email":"snaijace@gmail.com",
-    "telephone":"+2348037591241",
-    "address":{
-      "@type":"PostalAddress",
-      "streetAddress":"138 Tenant Road",
-      "addressLocality":"Aba",
-      "addressRegion":"Abia State",
-      "postalCode":"450211",
-      "addressCountry":"NG"
-    },
-    "sameAs":[
-      "https://www.snaija.online"
-    ]
-  }
-  </script>
+        .header-logo h1 {
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .header-logo h1 span {
+            color: var(--gold);
+        }
+
+        .menu-btn {
+            background: transparent;
+            border: 1px solid #444;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .menu-btn span {
+            display: block;
+            width: 15px;
+            height: 2px;
+            background: white;
+            position: relative;
+        }
+        .menu-btn span::before, .menu-btn span::after {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 2px;
+            background: white;
+            left: 0;
+        }
+        .menu-btn span::before { top: -5px; }
+        .menu-btn span::after { top: 5px; }
+
+        /* --- TAGLINE --- */
+        .tagline {
+            text-align: center;
+            font-family: 'Georgia', serif;
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--text-light);
+            margin: 20px 0;
+            letter-spacing: 1px;
+        }
+        .tagline span {
+            color: var(--gold);
+        }
+
+        /* --- SECTIONS --- */
+        .trade-section {
+            padding: 0 15px 40px 15px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .trade-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .trade-logo {
+            width: 80px;
+            height: 80px;
+            border: 2px solid white;
+            border-radius: 50%;
+            padding: 5px;
+        }
+
+        .trade-title {
+            flex-grow: 1;
+        }
+
+        .trade-title h3 {
+            color: var(--gold);
+            font-size: 11px;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .trade-title h2 {
+            font-size: 18px;
+            line-height: 1.2;
+        }
+
+        .start-btn {
+            background: linear-gradient(to right, #333, #888, #ddd);
+            border: 1px solid #fff;
+            color: #000;
+            font-weight: bold;
+            padding: 8px 30px 8px 15px;
+            clip-path: polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0 100%);
+            cursor: pointer;
+            font-size: 12px;
+            letter-spacing: 2px;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+
+        /* --- INTERACTIVE PANEL --- */
+        .interactive-panel {
+            border: 3px solid var(--panel-border);
+            border-radius: 25px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+            position: relative;
+        }
+
+        .panel-content {
+            display: flex;
+            gap: 15px;
+            height: 250px;
+        }
+
+        /* Vertical Carousel */
+        .vertical-carousel {
+            width: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            border-right: 1px solid rgba(255,255,255,0.2);
+            padding-right: 10px;
+        }
+
+        .nav-arrow {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            opacity: 0.7;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-arrow:hover { opacity: 1; }
+
+        .thumbnail-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            flex-grow: 1;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .thumbnail {
+            width: 60px;
+            height: 45px;
+            border: 2px solid #333;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .thumbnail.active {
+            border-color: var(--active-orange);
+            transform: scale(1.05);
+        }
+
+        .thumb-label {
+            display: none;
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 9px;
+            white-space: nowrap;
+            color: white;
+            font-weight: bold;
+        }
+
+        .thumbnail.active .thumb-label {
+            display: block;
+        }
+
+        /* Main Display */
+        .main-display {
+            flex-grow: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .main-display img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s;
+        }
+
+        .panel-footer {
+            text-align: center;
+            font-size: 8px;
+            color: #aaa;
+            margin-top: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- ABOUT US --- */
+        .about-section {
+            padding: 20px 15px;
+            border-top: 1px solid #333;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            color: #fff;
+            text-decoration: underline;
+            text-decoration-color: #555;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .about-text p {
+            font-size: 11px;
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        .about-text .highlight {
+            color: yellow;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .about-avatar {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #8b5a2b, #d2b48c);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #555;
+        }
+
+        .about-avatar img {
+            width: 80%;
+            height: 80%;
+            object-fit: contain;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #050505;
+            padding: 30px 15px;
+            border-top: 1px solid #222;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            font-size: 9px;
+            color: #888;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-col h4 {
+            color: #aaa;
+            margin-bottom: 10px;
+            font-size: 10px;
+            text-transform: uppercase;
+        }
+
+        .footer-col p, .footer-col ul {
+            margin-bottom: 5px;
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 4px;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 600px) {
+            .trade-header { flex-direction: column; align-items: flex-start; }
+            .start-btn { position: relative; margin-top: 10px; align-self: flex-end; }
+            footer { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
 </head>
 <body>
 
-  <header class="site-header">
-    <a class="brand" href="#" aria-label="SCE - SNAIJA CONSTRUCTION ENGINEERING LTD.">
-      <span class="brand-mark" aria-hidden="true">
-        <img src="logo.png" alt="SNAIJA" class="brand-logo">
-      </span>
-      <span><i>SNAIJA</i> CONSTRUCTION ENGINEERING LTD.</span>
-    </a>
-    <p class="tagline">We Remain Pioneers In Architecture And Engineering Works.</p>
-    <button class="menu-button" type="button" aria-label="Open contact form" data-open-modal="General enquiry">
-      <span></span><span></span>
-    </button>
-  </header>
+    <!-- HEADER -->
+    <header>
+        <div class="header-logo">
+            <!-- Placeholder for logo -->
+            <img src="https://via.placeholder.com/30/ffffff/000000?text=S" alt="Logo">
+            <h1><span>SNAIJA</span> CONSTRUCTION ENGINEERING LTD.</h1>
+        </div>
+        <button class="menu-btn"><span></span></button>
+    </header>
 
-  <main class="portal-shell">
-    
-    <section class="intro" aria-labelledby="page-title">
-      <p class="eyebrow"><span></span> Welcome to SNAIJA.</p>
-      <h1 id="page-title">What can we<br>help you with?</h1>
-      <p>Wonderful Architecture, Standard Products. One standard of excellence.</p>
-    </section>
-<!-- Left Gallery inserted safely behind content -->
-        
-    <div class="portal-grid">
-      
-      <!-- LEFT PORTAL: CONSTRUCTION -->
-      <article class="portal construction" tabindex="0">
-        <img src="construction.png" alt="Modern building under construction at golden hour">
-        <div class="portal-shade"></div>
-        <div class="hero-gallery left-gallery">
-            <div class="gallery-track">
-                <img src="assets/gal (1).jpg" alt="Gallery Image">
-                <img src="gal (1).jpg" alt="Gallery Image">
-                <img src="gal (2).jpg" alt="Gallery Image">
-                <img src="gal (3).jpg" alt="Gallery Image">
-                <img src="gal (4).jpg" alt="Gallery Image">
-                <img src="gal (5).jpg" alt="Gallery Image">
-                <img src="gal (6).jpg" alt="Gallery Image">
-                <img src="gal (7).jpg" alt="Gallery Image">
-                <img src="gal (8).jpg" alt="Gallery Image">
-                <img src="gal (9).jpg" alt="Gallery Image">
-                <img src="gal (10).jpg" alt="Gallery Image">
-                <img src="gal (11).jpg" alt="Gallery Image">
-                <img src="gal (12).jpg" alt="Gallery Image">
-                <img src="gal (13).jpg" alt="Gallery Image">
-                <img src="gal (14).jpg" alt="Gallery Image">
-                <img src="gal (15).jpg" alt="Gallery Image">
-                <img src="gal (16).jpg" alt="Gallery Image">
-                <img src="gal (17).jpg" alt="Gallery Image">
-                <img src="gal (18).jpg" alt="Gallery Image">
-                <img src="gal (19).jpg" alt="Gallery Image">
-                <img src="gal (20).jpg" alt="Gallery Image">
-                <img src="gal (21).jpg" alt="Gallery Image">
-                <!-- Repeat for seamless scrolling -->
-                <img src="gal (1).jpg" alt="Gallery Image">
-                <img src="gal (2).jpg" alt="Gallery Image">
-                <img src="gal (3).jpg" alt="Gallery Image">
-                <img src="gal (4).jpg" alt="Gallery Image">
-                <img src="gal (5).jpg" alt="Gallery Image">
-                <img src="gal (6).jpg" alt="Gallery Image">
-                <img src="gal (7).jpg" alt="Gallery Image">
-                <img src="gal (8).jpg" alt="Gallery Image">
-                <img src="gal (9).jpg" alt="Gallery Image">
-                <img src="gal (10).jpg" alt="Gallery Image">
-                <img src="gal (11).jpg" alt="Gallery Image">
-                <img src="gal (12).jpg" alt="Gallery Image">
-                <img src="gal (13).jpg" alt="Gallery Image">
-                <img src="gal (14).jpg" alt="Gallery Image">
-                <img src="gal (15).jpg" alt="Gallery Image">
-                <img src="gal (16).jpg" alt="Gallery Image">
-                <img src="gal (17).jpg" alt="Gallery Image">
-                <img src="gal (18).jpg" alt="Gallery Image">
-                <img src="gal (19).jpg" alt="Gallery Image">
-                <img src="gal (20).jpg" alt="Gallery Image">
-                <img src="gal (21).jpg" alt="Gallery Image">
-            </div>
-        </div>
+    <!-- TAGLINE -->
+    <div class="tagline">
+        One Brand - <span>Two Trades</span>
+    </div>
 
-        <span class="portal-number">01</span>
-        <div class="portal-content">
-          <span class="portal-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-7h6v7M8 10h.01M16 10h.01"/></svg>
-          </span>
-          <p class="portal-label">SNAIJA CONSTRUCTION ENGENEERING LTD</p>
-          <h2>Start a<br>Construction Project</h2>
-          <p class="portal-description">From first sketch to final finish, we deliver solid spaces built for generations.</p>
-          <button class="explore" type="button" data-open-modal="Construction project">
-            Explore construction
-            <span aria-hidden="true">↗</span>
-          </button>
-        </div>
-      </article>
+    <!-- SECTION 1: CONSTRUCTION -->
+    <section class="trade-section" id="construction">
+        <div class="trade-header">
+            <img src="https://via.placeholder.com/80/000000/ffffff?text=LOGO" class="trade-logo" alt="Construction Logo">
+            <div class="trade-title">
+                <h3>SNAIJA CONSTRUCTION ENGINEERING LTD</h3>
+                <h2>Start Your<br>Building Project With a Click</h2>
+            </div>
+            <button class="start-btn">START &nbsp;&nbsp;&nbsp;▶</button>
+        </div>
 
-      <!-- RIGHT PORTAL: IMPORTS -->
-      <article class="portal imports" tabindex="0">
-        <img src="imported-goods.png" alt="Premium imported goods for your convenience">
-        <div class="portal-shade"></div>
-        
-        <!-- Right Gallery inserted safely behind content -->
-        <div class="hero-gallery right-gallery">
-            <div class="gallery-track reverse">
-                <img src="gala (1).jpg" alt="Import Image">
-                <img src="gala (2).jpg" alt="Import Image">
-                <img src="gala (3).jpg" alt="Import Image">
-                <img src="gala (4).jpg" alt="Import Image">
-                <img src="gala (5).jpg" alt="Import Image">
-                <img src="gala (6).jpg" alt="Import Image">
-                <img src="gala (7).jpg" alt="Import Image">
-                <img src="gala (8).jpg" alt="Import Image">
-                <img src="gala (9).jpg" alt="Import Image">
-                <img src="gala (10).jpg" alt="Import Image">
-                <img src="gala (11).jpg" alt="Import Image">
-                <!-- Repeat for seamless scrolling -->
-                <img src="gala (1).jpg" alt="Import Image">
-                <img src="gala (2).jpg" alt="Import Image">
-                <img src="gala (3).jpg" alt="Import Image">
-                <img src="gala (4).jpg" alt="Import Image">
-                <img src="gala (5).jpg" alt="Import Image">
-                <img src="gala (6).jpg" alt="Import Image">
-                <img src="gala (7).jpg" alt="Import Image">
-                <img src="gala (8).jpg" alt="Import Image">
-                <img src="gala (9).jpg" alt="Import Image">
-                <img src="gala (10).jpg" alt="Import Image">
-                <img src="gala (11).jpg" alt="Import Image">
-            </div>
-        </div>
+        <div class="interactive-panel">
+            <div class="panel-content">
+                <div class="vertical-carousel">
+                    <button class="nav-arrow">ᐱ</button>
+                    <div class="thumbnail-container">
+                        <!-- Thumbnails -->
+                        <div class="thumbnail active" data-src="https://images.unsplash.com/photo-1541888086225-f641103980bc?w=800&q=80">
+                            <img src="https://images.unsplash.com/photo-1541888086225-f641103980bc?w=100&q=80" alt="Thumb 1">
+                            <div class="thumb-label">Storey Buildings</div>
+                        </div>
+                        <div class="thumbnail" data-src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80">
+                            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=100&q=80" alt="Thumb 2">
+                            <div class="thumb-label">Commercial</div>
+                        </div>
+                        <div class="thumbnail" data-src="https://images.unsplash.com/photo-1590496738910-449e625a6669?w=800&q=80">
+                            <img src="https://images.unsplash.com/photo-1590496738910-449e625a6669?w=100&q=80" alt="Thumb 3">
+                            <div class="thumb-label">Residential</div>
+                        </div>
+                    </div>
+                    <button class="nav-arrow">ᐯ</button>
+                </div>
+                <div class="main-display">
+                    <img src="https://images.unsplash.com/photo-1541888086225-f641103980bc?w=800&q=80" alt="Construction Site" class="main-img">
+                </div>
+            </div>
+            <div class="panel-footer">
+                Integrity Guaranteed • High Quality Guaranteed • Durability Guaranteed<br>
+                Affordability Guaranteed • Outstanding Design Guaranteed
+            </div>
+        </div>
+    </section>
 
-        <span class="portal-number">02</span>
-        <div class="portal-content">
-          <span class="portal-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M3 6.5 12 2l9 4.5v11L12 22l-9-4.5v-11ZM3 6.5l9 4.5 9-4.5M12 11v11M7.5 4.25l9 4.5"/></svg>
-          </span>
-          <p class="portal-label">SNAIJA VENTURES LIMITED</p>
-          <h2>General<br>Merchandise</h2>
-          <p class="portal-description">Carefully sourced products from trusted global suppliers, brought closer to you.</p>
-          <button class="explore" type="button" data-open-modal="Imported goods">
-            Browse our goods
-            <span aria-hidden="true">↗</span>
-          </button>
-        </div>
-      </article>
+    <!-- SECTION 2: VENTURES -->
+    <section class="trade-section" id="ventures">
+        <div class="trade-header">
+            <img src="https://via.placeholder.com/80/000000/ffffff?text=LOGO" class="trade-logo" alt="Ventures Logo">
+            <div class="trade-title">
+                <h3>SNAIJA VENTURES - GENERAL MERCHANDISE</h3>
+                <h2>Buy High<br>Quality Products Here</h2>
+            </div>
+            <button class="start-btn">START &nbsp;&nbsp;&nbsp;▶</button>
+        </div>
 
-    </div>
+        <div class="interactive-panel">
+            <div class="panel-content">
+                <div class="vertical-carousel">
+                    <button class="nav-arrow">ᐱ</button>
+                    <div class="thumbnail-container">
+                        <!-- Thumbnails -->
+                        <div class="thumbnail" data-src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800&q=80">
+                            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=100&q=80" alt="Thumb 1">
+                            <div class="thumb-label">Interiors</div>
+                        </div>
+                        <div class="thumbnail active" data-src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80">
+                            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=100&q=80" alt="Thumb 2">
+                            <div class="thumb-label">Logistics</div>
+                        </div>
+                        <div class="thumbnail" data-src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=800&q=80">
+                            <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=100&q=80" alt="Thumb 3">
+                            <div class="thumb-label">Solar Lights</div>
+                        </div>
+                    </div>
+                    <button class="nav-arrow">ᐯ</button>
+                </div>
+                <div class="main-display">
+                    <!-- Overlaying a map graphic on logistics -->
+                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80" alt="Merchandise" class="main-img">
+                </div>
+            </div>
+            <div class="panel-footer">
+                Integrity Guaranteed • High Quality Guaranteed • Durability Guaranteed<br>
+                Affordability Guaranteed • Outstanding Design Guaranteed
+            </div>
+        </div>
+    </section>
 
-    <div class="scroll-cue" aria-hidden="true">
-      <span>Make a Choice</span>
-      <i></i>
-    </div>
-  </main>
+    <!-- ABOUT US -->
+    <section class="about-section">
+        <div class="about-text">
+            <h2>About Us . . .</h2>
+            <p>
+                <span class="highlight">SNAIJA</span> CONSTRUCTION ENGINEERING LTD was founded by Mr. Stanley Akabuogu in the year ****. The company is specialized in different kinds of building construction services. Affiliated with this business is SNAIJA VENTURES LTD which is an enterprise dealing in different types of imported goods, including solar systems, and household equipment.
+            </p>
+        </div>
+        <div class="about-avatar">
+            <!-- Simple SVG Avatar Placeholder -->
+            <svg viewBox="0 0 100 100" width="80" height="80">
+                <circle cx="50" cy="45" r="25" fill="#fddb9b" />
+                <path d="M25 100 C 25 70, 75 70, 75 100" fill="#333" />
+                <path d="M35 30 Q 50 10 65 30" fill="#4a3018" /> <!-- Hair -->
+                <circle cx="42" cy="42" r="3" fill="#000" />
+                <circle cx="58" cy="42" r="3" fill="#000" />
+                <path d="M45 55 Q 50 60 55 55" stroke="#000" fill="transparent" />
+            </svg>
+        </div>
+    </section>
 
-  <footer class="site-footer">
-    <div class="footer-section">
-        <h3>SNAIJA CONSTRUCTION ENGINEERING LTD.</h3>
-        <p>We Remain Pioneers In Architecture & Engineering Works.</p>
-    </div>
-    <div class="footer-section">
-        <h4>Office</h4>
-        <p>#138 Tenant Road, Aba, Abia State</p>
-    </div>
-    <div class="footer-section">
-        <h4>Contact</h4>
-        <p>📞 +234 803 759 1241</p>
-        <p>📞 +234 807 840 5140</p>
-        <p>✉️ snaijace@gmail.com</p>
-        <p>🌐 www.snaija.online</p>
-    </div>
-    <div class="footer-section">
-        <h4>Services</h4>
-        <p>Building Construction</p>
-        <p>Civil Engineering</p>
-        <p>Architectural Design</p>
-        <p>Engineering Consultancy</p>
-        <p>Project Management</p>
-    </div>
-    <div class="footer-bottom">
-        © 2026 SNAIJA CONSTRUCTION ENGINEERING LTD. All Rights Reserved.
-    </div>
-  </footer>
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-col">
+            <h4>SNAIJA CONSTRUCTION ENGINEERING LTD.</h4>
+            <p>WE REMAIN PIONEERS IN ARCHITECTURE & ENGINEERING WORKS.</p>
+        </div>
+        <div class="footer-col">
+            <h4>OFFICE</h4>
+            <p>#42 ABA-OWERRI ROAD, ABA, ABIA STATE</p>
+            <p>#138 TENANT ROAD, ABA, ABIA STATE</p>
+        </div>
+        <div class="footer-col">
+            <h4>CONTACT</h4>
+            <p>📞 +234 803 759 1241</p>
+            <p>📞 +234 807 840 5140</p>
+            <p>✉️ SNAIJACE@GMAIL.COM</p>
+            <p>🌐 WWW.SNAIJA.ONLINE</p>
+        </div>
+        <div class="footer-col">
+            <h4>SERVICES</h4>
+            <ul>
+                <li>BUILDING CONSTRUCTION</li>
+                <li>CIVIL ENGINEERING</li>
+                <li>ARCHITECTURAL DESIGN</li>
+                <li>ENGINEERING CONSULTANCY</li>
+                <li>PROJECT MANAGEMENT</li>
+            </ul>
+            <p style="margin-top:10px;">© 2026 SNAIJA CONSTRUCTION ENGINEERING LTD. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
 
-  <dialog class="contact-modal">
-    <button class="modal-close" type="button" aria-label="Close">×</button>
-    <p class="eyebrow"><span></span> Start a conversation</p>
-    <h2>Tell us what<br>you have in mind.</h2>
-    <p class="modal-copy">Leave your details and our team will get back to you.</p>
-    <form>
-      <label>
-        Your name
-        <input type="text" name="name" autocomplete="name" required placeholder="e.g. David Okafor">
-      </label>
-      <label>
-        Phone or email
-        <input type="text" name="contact" required placeholder="How should we reach you?">
-      </label>
-      <label>
-        I’m interested in
-        <select name="interest">
-          <option>Construction project</option>
-          <option>Imported goods</option>
-          <option>General enquiry</option>
-        </select>
-      </label>
-      <button class="submit-button" type="submit">Get in Touch <span>→</span></button>
-      <p class="form-status" role="status"></p>
-    </form>
-  </dialog>
+    <!-- JAVASCRIPT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Function to handle the gallery functionality for each interactive panel
+            const setupGallery = (panel) => {
+                const thumbnails = panel.querySelectorAll('.thumbnail');
+                const mainImg = panel.querySelector('.main-img');
+                const upArrow = panel.querySelector('.nav-arrow:first-child');
+                const downArrow = panel.querySelector('.nav-arrow:last-child');
+                
+                let currentIndex = Array.from(thumbnails).findIndex(t => t.classList.contains('active'));
+                if(currentIndex === -1) currentIndex = 0;
 
-  <script src="script.js"></script>
+                const updateMainImage = (index) => {
+                    // Remove active class from all
+                    thumbnails.forEach(t => t.classList.remove('active'));
+                    
+                    // Add active class to target
+                    const targetThumb = thumbnails[index];
+                    targetThumb.classList.add('active');
+                    
+                    // Fade out, swap source, fade in
+                    mainImg.style.opacity = 0.5;
+                    setTimeout(() => {
+                        mainImg.src = targetThumb.getAttribute('data-src');
+                        mainImg.style.opacity = 1;
+                    }, 150);
+                };
+
+                // Click event on thumbnails
+                thumbnails.forEach((thumb, index) => {
+                    thumb.addEventListener('click', () => {
+                        currentIndex = index;
+                        updateMainImage(currentIndex);
+                    });
+                });
+
+                // Arrow Navigation
+                upArrow.addEventListener('click', () => {
+                    currentIndex = (currentIndex > 0) ? currentIndex - 1 : thumbnails.length - 1;
+                    updateMainImage(currentIndex);
+                });
+
+                downArrow.addEventListener('click', () => {
+                    currentIndex = (currentIndex < thumbnails.length - 1) ? currentIndex + 1 : 0;
+                    updateMainImage(currentIndex);
+                });
+            };
+
+            // Initialize all interactive panels on the page
+            const panels = document.querySelectorAll('.interactive-panel');
+            panels.forEach(panel => setupGallery(panel));
+        });
+    </script>
 </body>
 </html>
