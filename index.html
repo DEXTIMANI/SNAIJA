@@ -260,22 +260,28 @@
         .nav-arrow:hover { opacity: 1; }
 
         .thumbnail-container {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            flex-grow: 1;
-            justify-content: center;
-            overflow: hidden;
-        }
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-grow: 1;
+    justify-content: center;
+    /* Remove overflow: hidden; */
+    /* overflow: hidden;  <-- DELETE OR COMMENT THIS LINE */
+    
+    /* Add padding to the bottom so the labels have space to show */
+    padding-bottom: 25px; 
+}
 
         .thumbnail {
-            width: 60px;
-            height: 45px;
-            border: 2px solid #333;
-            cursor: pointer;
-            position: relative;
-            transition: all 0.3s;
-        }
+    width: 60px;
+    height: 45px;
+    border: 2px solid #333;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s;
+    /* Add bottom margin to push labels away from the next image */
+    margin-bottom: 25px; 
+}
 
         .thumbnail img {
             width: 100%;
@@ -289,16 +295,18 @@
         }
 
         .thumb-label {
-            display: none;
-            position: absolute;
-            bottom: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 9px;
-            white-space: nowrap;
-            color: white;
-            font-weight: bold;
-        }
+    display: none;
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 9px;
+    white-space: nowrap;
+    color: white;
+    font-weight: bold;
+    z-index: 10; /* Ensures text sits on top of images */
+    pointer-events: none; /* Prevents text from blocking clicks */
+}
 
         .thumbnail.active .thumb-label {
             display: block;
