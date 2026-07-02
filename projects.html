@@ -117,11 +117,11 @@
             text-align: center;
         }
         .logo {
-    width: 70%;
-    height: 70%;
-    object-fit: contain;
-    display: block;
-}
+            width: 70%;
+            height: 70%;
+            object-fit: contain;
+            display: block;
+        }
 
         .header-titles h1 {
             font-size: 14px;
@@ -233,11 +233,11 @@
             position: relative;
         }
         .large-logo-image {
-    width: 50px;      /* Adjust to your preferred size */
-    height: auto;
-    object-fit: contain;
-    display: block;
-}
+            width: 50px;
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
 
         .arrow {
             color: var(--gold);
@@ -411,55 +411,27 @@
 
         .hidden { display: none !important; }
 
-        /* Samples Grid */
-        .samples-grid {
+        /* Detail Images Grid */
+        .detail-images-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
         }
 
-        .sample-card {
-            background: var(--bg-card);
-            border: 1px solid #333;
-            border-radius: 10px;
-            overflow: hidden;
-            transition: transform 0.3s, border-color 0.3s;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .sample-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--gold);
-        }
-
-        .sample-card img {
+        .detail-img {
             width: 100%;
             height: 180px;
             object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid #333;
+            transition: transform 0.3s, border-color 0.3s;
         }
-
-        .sample-details {
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
+        
+        .detail-img:hover {
+            transform: scale(1.02);
+            border-color: var(--gold);
         }
-
-        .sample-details h4 {
-            color: var(--gold);
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-
-        .sample-details p {
-            font-size: 13px;
-            color: var(--text-gray);
-            margin-bottom: 15px;
-            flex-grow: 1;
-        }
-
-        .sample-details button { width: 100%; }
 
         /* Form Styles */
         .project-form {
@@ -543,8 +515,8 @@
             <div class="top-bar">
                 <div class="company-header-info">
                    <div class="logo-placeholder">
-    <img src="logo.png" alt="Company Logo" class="logo">
-</div>
+                        <img src="logo.png" alt="Company Logo" class="logo">
+                    </div>
                     <div class="header-titles">
                         <h1>SNAIJA CONSTRUCTION ENGINEERING LTD.</h1>
                     </div>
@@ -553,13 +525,13 @@
             </div>
             
             <div class="brand-trades">
-               Your Construction Project <span>Starts Here</span>
+                Your Construction Project <span>Starts Here</span>
             </div>
 
             <div class="sub-header">
                <div class="large-logo">
-    <img src="snaija-logo.png" alt="SNAIJA Construction Logo" class="large-logo-image">
-</div>
+                    <img src="snaija-logo.png" alt="SNAIJA Construction Logo" class="large-logo-image">
+                </div>
                 <div class="start-project">
                     SNAIJA CONSTRUCTION ENGINEERING LTD
                     <h2>Start Your<br>Building Project With a Click</h2>
@@ -586,19 +558,20 @@
                         <img src="gal (10).jpg" alt="Plaza Building">
                         <div class="card-title">Plaza Complex</div>
                         <div class="card-subtitle">Eziama Amahia Town Hall<br>Full building with<br>interior design</div>
-                        <button class="btn open-modal-btn">Get Quote</button>
+                        <!-- Note: The onclick passes the unique title -->
+                        <button class="btn" onclick="openProjectDetails('Plaza Complex')">Get Quote</button>
                     </div>
                     <div class="card">
                         <img src="gal (15).jpg" alt="Modern Villa">
                         <div class="card-title">Modern Villa</div>
                         <div class="card-subtitle">GRA Phase 2<br>Luxury residential<br>turnkey project</div>
-                        <button class="btn open-modal-btn">Get Quote</button>
+                        <button class="btn" onclick="openProjectDetails('Modern Villa')">Get Quote</button>
                     </div>
                     <div class="card">
                         <img src="gal (7).jpg" alt="Commercial Plaza">
                         <div class="card-title">Commercial Plaza</div>
                         <div class="card-subtitle">Aba Road<br>Shopping complex<br>and offices</div>
-                        <button class="btn open-modal-btn">Get Quote</button>
+                        <button class="btn" onclick="openProjectDetails('Commercial Plaza')">Get Quote</button>
                     </div>
                 </div>
             </div>
@@ -615,19 +588,19 @@
                         <img src="gal (6).jpg" alt="Building Projects">
                         <div class="card-title">Building Projects</div>
                         <div class="card-subtitle">From foundations<br>to exquisite<br>roofing finishes</div>
-                        <button class="btn open-modal-btn">Explore</button>
+                        <button class="btn" onclick="openProjectDetails('Building Projects')">Explore</button>
                     </div>
                     <div class="card">
                         <img src="gal (12).jpg" alt="Architectural Plan">
                         <div class="card-title">Architectural Plan</div>
                         <div class="card-subtitle">World-class 3D<br>modeling and<br>structural blueprints</div>
-                        <button class="btn open-modal-btn">Explore</button>
+                        <button class="btn" onclick="openProjectDetails('Architectural Plan')">Explore</button>
                     </div>
                     <div class="card">
                         <img src="gal (15).jpg" alt="Maintenance">
                         <div class="card-title">Maintenance</div>
                         <div class="card-subtitle">Facility upkeep<br>Renovations, and structural<br>rehabilitation</div>
-                        <button class="btn open-modal-btn">Explore</button>
+                        <button class="btn" onclick="openProjectDetails('Maintenance')">Explore</button>
                     </div>
                 </div>
             </div>
@@ -652,18 +625,25 @@
     <div class="modal-overlay" id="projectModal">
         <div class="modal-container">
             <div class="modal-header">
-                <h3 id="modalTitle">Explore Projects</h3>
+                <h3 id="modalTitle">Project Details</h3>
                 <button class="close-modal" id="closeModal">&times;</button>
             </div>
             
             <div class="modal-content">
-                <!-- VIEW 1: Samples Grid -->
-                <div id="viewSamples">
-                    <div class="samples-grid" id="samplesContainer">
-                        <!-- Populated by JS -->
+                <!-- VIEW 1: Specific Project Details & Images -->
+                <div id="viewDetails">
+                    <h4 id="detailTitle" style="color: var(--gold); font-size: 22px; margin-bottom: 5px;"></h4>
+                    <p id="detailDesc" style="color: var(--text-gray); margin-bottom: 20px; font-size: 14px;"></p>
+                    
+                    <div class="detail-images-grid" id="detailImagesContainer">
+                        <!-- Populated by JS based on selection -->
+                    </div>
+
+                    <div style="text-align: center; margin-top: 25px; padding-top: 20px; border-top: 1px solid #333;">
+                        <button class="btn btn-filled" id="selectProjectBtn" style="padding: 12px 30px; font-size: 16px; width: 100%; max-width: 400px;">Select & Get Quote</button>
                     </div>
                 </div>
-f
+
                 <!-- VIEW 2: Project Form -->
                 <div id="viewForm" class="hidden">
                     <form class="project-form" id="projectForm">
@@ -702,7 +682,7 @@ f
                             <textarea id="frmDetails" rows="4" placeholder="Briefly describe your requirements..." required></textarea>
                         </div>
                         <button type="submit" class="btn btn-filled" style="padding: 12px; margin-top: 10px; font-size: 16px;">Compile & Preview Options</button>
-                        <button type="button" class="btn" id="backToSamplesBtn" style="margin-top: 10px;">Back to Samples</button>
+                        <button type="button" class="btn" id="backToDetailsBtn" style="margin-top: 10px;">Back to Details</button>
                     </form>
                 </div>
 
@@ -757,64 +737,63 @@ f
         });
 
         // --- MODAL & DATA LOGIC ---
-        const WHATSAPP_NUMBER = "2348000000040"; // Specified number ending in 40
+        const WHATSAPP_NUMBER = "2348000000040"; 
 
-        // Sample Data (10 distinct construction models)
-        const projectSamples = [
-            { id: 1, title: "Modern Luxury Duplex", desc: "A contemporary 5-bedroom duplex featuring smart home integration, open-plan living, and exquisite glass facades.", img: "gal(15).jpg" },
-            { id: 2, title: "Commercial Plaza Deck", desc: "Multi-level commercial infrastructure optimized for retail and corporate office spaces with deep foundations.", img: "gal (16).jpg" },
-            { id: 3, title: "Industrial Warehouse", desc: "Heavy-duty steel structural warehouse designed for maximum storage efficiency and heavy machinery operations.", img: "gal (17).jpg" },
-            { id: 4, title: "Classic Block Block", desc: "Standard 4-flat residential block optimized for rental returns, featuring standard masonry and durable roofing.", img: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=500&q=80" },
-            { id: 5, title: "Eco-Friendly Villa", desc: "Sustainable architecture utilizing natural light, cross-ventilation, and solar-ready roofing integrations.", img: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=500&q=80" },
-            { id: 6, title: "Urban Townhouse", desc: "Space-efficient 3-story townhouse perfect for densely populated urban centers, featuring a modern minimalist exterior.", img: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=500&q=80" },
-            { id: 7, title: "Hospitality Resort Complex", desc: "Extensive landscaping and structural engineering for hotel and resort environments.", img: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=500&q=80" },
-            { id: 8, title: "Renovation & Remodeling", desc: "Complete structural overhaul, reinforcement, and aesthetic upgrades for aging properties.", img: "https://images.unsplash.com/photo-1504307651254-35680f356f58?w=500&q=80" },
-            { id: 9, title: "Educational Facility", desc: "School block construction adhering to safety regulations, featuring spacious classrooms and administrative blocks.", img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500&q=80" },
-            { id: 10, title: "Custom Architectural Plan", desc: "Bespoke 3D modeling and floor planning tailored specifically to client terrain and geometric requirements.", img: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=500&q=80" }
-        ];
-
-        let selectedProject = null;
+        // Project Database: Maps the project titles to their details and 3+ images
+        const projectData = {
+            "Plaza Complex": {
+                title: "Plaza Complex",
+                desc: "Eziama Amahia Town Hall. Full building with interior design and robust structural integrity for high foot traffic.",
+                images: ["gal (10).jpg", "gal (2).jpg", "gal (3).jpg"] 
+            },
+            "Modern Villa": {
+                title: "Modern Villa",
+                desc: "GRA Phase 2. Luxury residential turnkey project featuring smart home technology, pool area, and modern aesthetics.",
+                images: ["gal (15).jpg", "gal (4).jpg", "gal (5).jpg"]
+            },
+            "Commercial Plaza": {
+                title: "Commercial Plaza",
+                desc: "Aba Road. Expansive shopping complex and office spaces designed with ample parking and accessibility.",
+                images: ["gal (7).jpg", "gal (8).jpg", "gal (9).jpg"]
+            },
+            "Building Projects": {
+                title: "Building Projects",
+                desc: "From initial ground breaking and solid foundations to exquisite roofing finishes. We handle it all.",
+                images: ["gal (6).jpg", "gal (11).jpg", "gal (13).jpg"]
+            },
+            "Architectural Plan": {
+                title: "Architectural Plan",
+                desc: "World-class 3D modeling, floor planning, and structural blueprints tailored to your specific terrain.",
+                images: ["gal (12).jpg", "gal (14).jpg", "gal (1).jpg"]
+            },
+            "Maintenance": {
+                title: "Maintenance",
+                desc: "Comprehensive facility upkeep, total renovations, and structural rehabilitation for aging properties.",
+                images: ["gal (15).jpg", "gal (16).jpg", "gal (17).jpg"]
+            }
+        };
 
         // DOM Elements
         const modal = document.getElementById('projectModal');
         const closeModal = document.getElementById('closeModal');
         const modalTitle = document.getElementById('modalTitle');
-        const viewSamples = document.getElementById('viewSamples');
+        const viewDetails = document.getElementById('viewDetails');
         const viewForm = document.getElementById('viewForm');
         const viewPreview = document.getElementById('viewPreview');
-        const samplesContainer = document.getElementById('samplesContainer');
         const projectForm = document.getElementById('projectForm');
-        const backToSamplesBtn = document.getElementById('backToSamplesBtn');
+        const backToDetailsBtn = document.getElementById('backToDetailsBtn');
 
-        // Render Samples
-        function renderSamples() {
-            samplesContainer.innerHTML = '';
-            projectSamples.forEach(sample => {
-                const card = document.createElement('div');
-                card.className = 'sample-card';
-                card.innerHTML = `
-                    <img src="${sample.img}" alt="${sample.title}">
-                    <div class="sample-details">
-                        <h4>${sample.title}</h4>
-                        <p>${sample.desc}</p>
-                        <button class="btn btn-filled" onclick="selectSample('${sample.title}')">Select This Model</button>
-                    </div>
-                `;
-                samplesContainer.appendChild(card);
-            });
-        }
-
-        // View Management
+        // View Management Function
         function switchView(view) {
-            viewSamples.classList.add('hidden');
+            viewDetails.classList.add('hidden');
             viewForm.classList.add('hidden');
             viewPreview.classList.add('hidden');
 
-            if (view === 'samples') {
-                modalTitle.textContent = "Explore Our Models";
-                viewSamples.classList.remove('hidden');
-            } else if (view === 'form') {
+            if (view === 'details') {
                 modalTitle.textContent = "Project Details";
+                viewDetails.classList.remove('hidden');
+            } else if (view === 'form') {
+                modalTitle.textContent = "Request Quote";
                 viewForm.classList.remove('hidden');
             } else if (view === 'preview') {
                 modalTitle.textContent = "Quote Preview";
@@ -822,28 +801,44 @@ f
             }
         }
 
-        // Action: Open Modal
-        document.querySelectorAll('.open-modal-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                modal.style.display = 'flex';
-                renderSamples();
-                switchView('samples');
+        // Open specific project details
+        window.openProjectDetails = function(projectKey) {
+            const project = projectData[projectKey];
+            if (!project) return; // Exit if data not found
+
+            // Populate the text
+            document.getElementById('detailTitle').textContent = project.title;
+            document.getElementById('detailDesc').textContent = project.desc;
+
+            // Populate the multiple images
+            const imgContainer = document.getElementById('detailImagesContainer');
+            imgContainer.innerHTML = ''; // Clear previous images
+            project.images.forEach(imgSrc => {
+                const imgElement = document.createElement('img');
+                imgElement.src = imgSrc;
+                imgElement.className = 'detail-img';
+                imgElement.alt = project.title;
+                imgContainer.appendChild(imgElement);
             });
-        });
+
+            // Set the "Select" button to open the form for this specific project
+            const selectBtn = document.getElementById('selectProjectBtn');
+            selectBtn.onclick = function() {
+                document.getElementById('frmModel').value = project.title;
+                switchView('form');
+            };
+
+            // Show modal
+            modal.style.display = 'flex';
+            switchView('details');
+        };
 
         // Action: Close Modal
         closeModal.addEventListener('click', () => modal.style.display = 'none');
         window.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
 
-        // Action: Select Sample
-        window.selectSample = function(title) {
-            selectedProject = title;
-            document.getElementById('frmModel').value = title;
-            switchView('form');
-        };
-
-        // Action: Back Button
-        backToSamplesBtn.addEventListener('click', () => switchView('samples'));
+        // Action: Back Buttons
+        backToDetailsBtn.addEventListener('click', () => switchView('details'));
 
         // Action: Form Submit -> Compile Preview
         projectForm.addEventListener('submit', function(e) {
