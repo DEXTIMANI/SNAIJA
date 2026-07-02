@@ -127,15 +127,27 @@
         .modal-content::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 4px; }
         .hidden { display: none !important; }
 
-        /* Samples Grid */
-        .samples-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
-        .sample-card { background: var(--bg-card); border: 1px solid #333; border-radius: 10px; overflow: hidden; transition: transform 0.3s, border-color 0.3s; display: flex; flex-direction: column; }
-        .sample-card:hover { transform: translateY(-5px); border-color: var(--gold); }
-        .sample-card img { width: 100%; height: 180px; object-fit: cover; }
-        .sample-details { padding: 15px; display: flex; flex-direction: column; flex-grow: 1; }
-        .sample-details h4 { color: var(--gold); font-size: 18px; margin-bottom: 10px; }
-        .sample-details p { font-size: 13px; color: var(--text-gray); margin-bottom: 15px; flex-grow: 1; }
-        .sample-details button { width: 100%; }
+        /* Detail Images Grid (Replaces Sample Grid) */
+        .detail-images-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .detail-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid #333;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        
+        .detail-img:hover {
+            transform: scale(1.02);
+            border-color: var(--gold);
+        }
 
         /* Form Styles */
         .project-form { max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; }
@@ -211,19 +223,19 @@
                         <img src="https://images.unsplash.com/photo-1509391366360-1e97f52cefd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Solar Inverters">
                         <div class="card-title">Solar Inverters</div>
                         <div class="card-subtitle">Premium 5KVA - 20KVA<br>hybrid inverters for<br>uninterrupted power.</div>
-                        <button class="btn open-modal-btn">Place Order</button>
+                        <button class="btn" onclick="openProductDetails('Solar Inverters')">Place Order</button>
                     </div>
                     <div class="card">
                         <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Home Appliances">
                         <div class="card-title">Home Appliances</div>
                         <div class="card-subtitle">Imported smart TVs,<br>refrigerators, and<br>washing machines.</div>
-                        <button class="btn open-modal-btn">Place Order</button>
+                        <button class="btn" onclick="openProductDetails('Home Appliances')">Place Order</button>
                     </div>
                     <div class="card">
                         <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Luxury Furniture">
                         <div class="card-title">Luxury Furniture</div>
                         <div class="card-subtitle">High-end sofas,<br>dining sets, and<br>interior decor.</div>
-                        <button class="btn open-modal-btn">Place Order</button>
+                        <button class="btn" onclick="openProductDetails('Luxury Furniture')">Place Order</button>
                     </div>
                 </div>
             </div>
@@ -240,19 +252,19 @@
                         <img src="https://images.unsplash.com/photo-1508615039623-a25605d2b022?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Energy Solutions">
                         <div class="card-title">Energy Solutions</div>
                         <div class="card-subtitle">Solar panels, lithium<br>batteries, and outdoor<br>solar street lights.</div>
-                        <button class="btn open-modal-btn">Explore</button>
+                        <button class="btn" onclick="openProductDetails('Energy Solutions')">Explore</button>
                     </div>
                     <div class="card">
                         <img src="https://images.unsplash.com/photo-1558384526-9f8742b687f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Security Doors">
                         <div class="card-title">Security Doors</div>
                         <div class="card-subtitle">Imported armored<br>and bulletproof doors<br>for home safety.</div>
-                        <button class="btn open-modal-btn">Explore</button>
+                        <button class="btn" onclick="openProductDetails('Security Doors')">Explore</button>
                     </div>
                     <div class="card">
                         <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Logistics Services">
                         <div class="card-title">Logistics Services</div>
                         <div class="card-subtitle">Heavy haulage and<br>nationwide delivery<br>for bulk items.</div>
-                        <button class="btn open-modal-btn">Explore</button>
+                        <button class="btn" onclick="openProductDetails('Logistics Services')">Explore</button>
                     </div>
                 </div>
             </div>
@@ -278,15 +290,22 @@
     <div class="modal-overlay" id="productModal">
         <div class="modal-container">
             <div class="modal-header">
-                <h3 id="modalTitle">Explore Our Products</h3>
+                <h3 id="modalTitle">Product Details</h3>
                 <button class="close-modal" id="closeModal">&times;</button>
             </div>
             
             <div class="modal-content">
-                <!-- VIEW 1: Samples Grid -->
-                <div id="viewSamples">
-                    <div class="samples-grid" id="samplesContainer">
-                        <!-- Populated by JS -->
+                <!-- VIEW 1: Specific Product Details & Images -->
+                <div id="viewDetails">
+                    <h4 id="detailTitle" style="color: var(--gold); font-size: 22px; margin-bottom: 5px;"></h4>
+                    <p id="detailDesc" style="color: var(--text-gray); margin-bottom: 20px; font-size: 14px;"></p>
+                    
+                    <div class="detail-images-grid" id="detailImagesContainer">
+                        <!-- Populated by JS based on selection -->
+                    </div>
+
+                    <div style="text-align: center; margin-top: 25px; padding-top: 20px; border-top: 1px solid #333;">
+                        <button class="btn btn-filled" id="selectProductBtn" style="padding: 12px 30px; font-size: 16px; width: 100%; max-width: 400px;">Select & Order</button>
                     </div>
                 </div>
 
@@ -328,7 +347,7 @@
                             <textarea id="frmDetails" rows="4" placeholder="Enter delivery address in Aba or nationwide, and any specific model requests..." required></textarea>
                         </div>
                         <button type="submit" class="btn btn-filled" style="padding: 12px; margin-top: 10px; font-size: 16px;">Compile Order Preview</button>
-                        <button type="button" class="btn" id="backToSamplesBtn" style="margin-top: 10px;">Back to Products</button>
+                        <button type="button" class="btn" id="backToDetailsBtn" style="margin-top: 10px;">Back to Details</button>
                     </form>
                 </div>
 
@@ -383,64 +402,87 @@
         });
 
         // --- MODAL & DATA LOGIC ---
-        const WHATSAPP_NUMBER = "2348000000040"; // Specified number ending in 40
+        const WHATSAPP_NUMBER = "2348000000040"; 
 
-        // Sample Data (10 distinct merchandise/goods)
-        const productSamples = [
-            { id: 1, title: "5KVA Hybrid Solar System", desc: "Complete 5KVA solar installation featuring high-efficiency panels and pure sine wave inverter.", img: "https://images.unsplash.com/photo-1509391366360-1e97f52cefd3?w=500&q=80" },
-            { id: 2, title: "200AH Lithium Batteries", desc: "Long-lasting, deep cycle lithium-ion batteries with built-in BMS for maximum backup storage.", img: "https://images.unsplash.com/photo-1593941707882-a5bba14938cb?w=500&q=80" },
-            { id: 3, title: "Solar Street Lighting", desc: "All-in-one IP65 waterproof solar street lights with motion sensors, ideal for estates and compounds.", img: "https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=500&q=80" },
-            { id: 4, title: "Imported Security Doors", desc: "Armored, bulletproof, and premium Turkish/Italian security doors for maximum home protection.", img: "https://images.unsplash.com/photo-1558384526-9f8742b687f6?w=500&q=80" },
-            { id: 5, title: "Smart Refrigerators", desc: "Energy-efficient, double-door smart refrigerators from top global brands.", img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=500&q=80" },
-            { id: 6, title: "Luxury Living Room Set", desc: "Imported leather and velvet sofas with contemporary aesthetics and superior comfort.", img: "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=500&q=80" },
-            { id: 7, title: "Industrial Generators", desc: "Heavy-duty soundproof diesel generators ranging from 20KVA to 250KVA.", img: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=500&q=80" },
-            { id: 8, title: "Home Theater Systems", desc: "Immersive 5.1 and 7.1 surround sound audio equipment for home entertainment.", img: "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=500&q=80" },
-            { id: 9, title: "Smart Air Conditioners", desc: "Inverter AC units (1HP to 3HP) that save energy and cool spaces rapidly.", img: "https://images.unsplash.com/photo-1629454158933-fb1f2c2ff37c?w=500&q=80" },
-            { id: 10, title: "Heavy Duty Logistics", desc: "Nationwide haulage and delivery services for bulk imported goods and construction materials.", img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=500&q=80" }
-        ];
-
-        let selectedProduct = null;
+        // Product Database: Maps the product titles to their details and 3+ images
+        const productData = {
+            "Solar Inverters": {
+                title: "Solar Inverters",
+                desc: "Premium 5KVA to 20KVA hybrid inverters designed for uninterrupted power, protecting your sensitive appliances while maximizing solar input.",
+                images: [
+                    "https://images.unsplash.com/photo-1509391366360-1e97f52cefd3?w=500&q=80",
+                    "https://images.unsplash.com/photo-1611365892117-00ac5ef43c90?w=500&q=80",
+                    "https://images.unsplash.com/photo-1584949514490-73fc1a2a8dd9?w=500&q=80"
+                ]
+            },
+            "Home Appliances": {
+                title: "Home Appliances",
+                desc: "High-end imported home appliances, including energy-efficient smart TVs, double-door refrigerators, and heavy-duty washing machines.",
+                images: [
+                    "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=500&q=80",
+                    "https://images.unsplash.com/photo-1629454158933-fb1f2c2ff37c?w=500&q=80",
+                    "https://images.unsplash.com/photo-1585223363321-dfbcf76a6d68?w=500&q=80"
+                ]
+            },
+            "Luxury Furniture": {
+                title: "Luxury Furniture",
+                desc: "Elevate your interiors with our imported high-end leather sofas, contemporary dining sets, and premium interior decor pieces.",
+                images: [
+                    "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=500&q=80",
+                    "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&q=80",
+                    "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=500&q=80"
+                ]
+            },
+            "Energy Solutions": {
+                title: "Energy Solutions",
+                desc: "Complete energy autonomy with our monocrystalline solar panels, deep-cycle lithium batteries, and automated outdoor solar street lighting.",
+                images: [
+                    "https://images.unsplash.com/photo-1508615039623-a25605d2b022?w=500&q=80",
+                    "https://images.unsplash.com/photo-1593941707882-a5bba14938cb?w=500&q=80",
+                    "https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=500&q=80"
+                ]
+            },
+            "Security Doors": {
+                title: "Security Doors",
+                desc: "Ensure the utmost safety for your home and office with our selection of imported armored, Turkish, and Italian bulletproof doors.",
+                images: [
+                    "https://images.unsplash.com/photo-1558384526-9f8742b687f6?w=500&q=80",
+                    "https://images.unsplash.com/photo-1534160410425-4fe052f5053b?w=500&q=80",
+                    "https://images.unsplash.com/photo-1513620959463-547dfbbaec55?w=500&q=80"
+                ]
+            },
+            "Logistics Services": {
+                title: "Logistics Services",
+                desc: "Reliable and secure nationwide heavy haulage and delivery services for bulk imported merchandise and heavy construction materials.",
+                images: [
+                    "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=500&q=80",
+                    "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=500&q=80",
+                    "https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=500&q=80"
+                ]
+            }
+        };
 
         // DOM Elements
         const modal = document.getElementById('productModal');
         const closeModal = document.getElementById('closeModal');
         const modalTitle = document.getElementById('modalTitle');
-        const viewSamples = document.getElementById('viewSamples');
+        const viewDetails = document.getElementById('viewDetails');
         const viewForm = document.getElementById('viewForm');
         const viewPreview = document.getElementById('viewPreview');
-        const samplesContainer = document.getElementById('samplesContainer');
         const orderForm = document.getElementById('orderForm');
-        const backToSamplesBtn = document.getElementById('backToSamplesBtn');
+        const backToDetailsBtn = document.getElementById('backToDetailsBtn');
 
-        // Render Samples
-        function renderSamples() {
-            samplesContainer.innerHTML = '';
-            productSamples.forEach(sample => {
-                const card = document.createElement('div');
-                card.className = 'sample-card';
-                card.innerHTML = `
-                    <img src="${sample.img}" alt="${sample.title}">
-                    <div class="sample-details">
-                        <h4>${sample.title}</h4>
-                        <p>${sample.desc}</p>
-                        <button class="btn btn-filled" onclick="selectSample('${sample.title}')">Select This Item</button>
-                    </div>
-                `;
-                samplesContainer.appendChild(card);
-            });
-        }
-
-        // View Management
+        // View Management Function
         function switchView(view) {
-            viewSamples.classList.add('hidden');
+            viewDetails.classList.add('hidden');
             viewForm.classList.add('hidden');
             viewPreview.classList.add('hidden');
 
-            if (view === 'samples') {
-                modalTitle.textContent = "Explore Our Products";
-                viewSamples.classList.remove('hidden');
+            if (view === 'details') {
+                modalTitle.textContent = "Product Details";
+                viewDetails.classList.remove('hidden');
             } else if (view === 'form') {
-                modalTitle.textContent = "Order Details";
+                modalTitle.textContent = "Order Request";
                 viewForm.classList.remove('hidden');
             } else if (view === 'preview') {
                 modalTitle.textContent = "Order Preview";
@@ -448,28 +490,44 @@
             }
         }
 
-        // Action: Open Modal
-        document.querySelectorAll('.open-modal-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                modal.style.display = 'flex';
-                renderSamples();
-                switchView('samples');
+        // Open specific product details
+        window.openProductDetails = function(productKey) {
+            const product = productData[productKey];
+            if (!product) return; // Exit if data not found
+
+            // Populate the text
+            document.getElementById('detailTitle').textContent = product.title;
+            document.getElementById('detailDesc').textContent = product.desc;
+
+            // Populate the multiple images
+            const imgContainer = document.getElementById('detailImagesContainer');
+            imgContainer.innerHTML = ''; // Clear previous images
+            product.images.forEach(imgSrc => {
+                const imgElement = document.createElement('img');
+                imgElement.src = imgSrc;
+                imgElement.className = 'detail-img';
+                imgElement.alt = product.title;
+                imgContainer.appendChild(imgElement);
             });
-        });
+
+            // Set the "Select" button to open the form for this specific product
+            const selectBtn = document.getElementById('selectProductBtn');
+            selectBtn.onclick = function() {
+                document.getElementById('frmProduct').value = product.title;
+                switchView('form');
+            };
+
+            // Show modal
+            modal.style.display = 'flex';
+            switchView('details');
+        };
 
         // Action: Close Modal
         closeModal.addEventListener('click', () => modal.style.display = 'none');
         window.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
 
-        // Action: Select Sample
-        window.selectSample = function(title) {
-            selectedProduct = title;
-            document.getElementById('frmProduct').value = title;
-            switchView('form');
-        };
-
-        // Action: Back Button
-        backToSamplesBtn.addEventListener('click', () => switchView('samples'));
+        // Action: Back Buttons
+        backToDetailsBtn.addEventListener('click', () => switchView('details'));
 
         // Action: Form Submit -> Compile Preview
         orderForm.addEventListener('submit', function(e) {
